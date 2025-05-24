@@ -30,3 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::post('/events/{event}/book', [UserController::class, 'bookTicket'])->name('events.book');
 });
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+});

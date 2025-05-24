@@ -11,11 +11,21 @@ class event extends Model
 
     protected $fillable = [
         'title',
-        'category',
-        'location',
-        'date_time',
         'description',
-        'image_url' // Pastikan ini sudah ada
+        'date_time',
+        'location',
+        'category',
+        'regular_price',
+        'vip_price',
+        'regular_benefits',
+        'vip_benefits',
+        'image_url'
+    ];
+
+    protected $casts = [
+        'date_time' => 'datetime',
+        'regular_price' => 'decimal:2',
+        'vip_price' => 'decimal:2'
     ];
 
     // Method untuk handle upload gambar

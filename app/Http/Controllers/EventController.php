@@ -19,26 +19,34 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('events.create');
+        return view('admin.events.create');
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            // validasi lainnya
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'date_time' => 'required|date',
+            'location' => 'required|string',
+            'category' => 'required|string',
+            'regular_price' => 'required|numeric|min:0',
+            'vip_price' => 'required|numeric|min:0',
+            'regular_benefits' => 'required|string',
+            'vip_benefits' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $eventData = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $eventData['image_url'] = Event::uploadImage($request->file('image'));
+            $path = $request->file('image')->store('public/events');
+            $validated['image_url'] = str_replace('public/', '', $path);
         }
 
-        Event::create($eventData);
+        Event::create($validated);
 
-        return redirect()->route('home')->with('success', 'Event created!');
+        return redirect()->route('admin.dashboard')->with('success', 'Event created successfully!');
     }
 
     public function home()
@@ -66,6 +74,6 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
-    return view('events.show', compact('event'));
+        return view('events.show', compact('event'));
     }
 }

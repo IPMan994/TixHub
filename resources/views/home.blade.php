@@ -65,8 +65,8 @@
         <!-- Create Your Own Event -->
         <div class="mb-12 bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold mb-4">Buat Event Kamu Sendiri</h2>
-            <p class="text-gray-700 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="text-gray-700 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <!-- <p class="text-gray-700 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="text-gray-700 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
             <button class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition">
                 Buat Events
             </button>
