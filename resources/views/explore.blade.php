@@ -11,13 +11,13 @@
         <div class="flex flex-wrap gap-2">
             <a href="{{ route('explore') }}"
                 class="px-4 py-2 rounded-full text-sm font-medium 
-                      {{ !request('category') ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                    {{ !request('category') ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
                 All Categories
             </a>
             @foreach($categories as $category)
             <a href="{{ route('explore', ['category' => $category]) }}"
                 class="px-4 py-2 rounded-full text-sm font-medium 
-                      {{ request('category') == $category ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                    {{ request('category') == $category ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
                 {{ $category }}
             </a>
             @endforeach

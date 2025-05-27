@@ -19,7 +19,7 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('admin.events.create');
+        return view('Admin.events.create');
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class EventController extends Controller
 
         Event::create($validated);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Event created successfully!');
+        return redirect()->route('Admin.dashboard')->with('success', 'Event created successfully!');
     }
 
     public function home()

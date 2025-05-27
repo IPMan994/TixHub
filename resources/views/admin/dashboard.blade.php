@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Admin Dashboard'])
+@extends('layouts.app')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -26,8 +26,8 @@
                         <div class="flex items-center">
                             <div class="flex-shrink-0 h-10 w-10">
                                 <img class="h-10 w-10 rounded-full object-cover" 
-                                     src="{{ $event->image_url ? asset('storage/'.$event->image_url) : asset('images/default-event.jpg') }}" 
-                                     alt="{{ $event->title }}">
+                                    src="{{ $event->image_url ? asset('storage/'.$event->image_url) : asset('images/default-event.jpg') }}" 
+                                    alt="{{ $event->title }}">
                             </div>
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">{{ $event->title }}</div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -45,19 +47,22 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+        // Contoh di AuthController
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            // Tambahkan pengecekan null
+    
+            // Dapatkan user yang baru login
             $user = Auth::user();
-
+    
+            // Pastikan user ada dan memiliki method isAdmin
             if (!$user) {
-                return redirect()->route('home');
+                return redirect()->route('home')->with('error', 'Login failed');
             }
 
-            return redirect()->intended(
-                $user->isAdmin() ? route('admin.dashboard') : route('home')
-            );
+            // Redirect berdasarkan role
+            return $user->isAdmin() 
+                ? redirect()->route('admin.dashboard')
+                : redirect()->route('home');
         }
 
         return back()->withErrors([

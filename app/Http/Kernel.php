@@ -1,4 +1,4 @@
 protected $routeMiddleware = [
     // ...
-    'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    'Admin' => \App\Http\Middleware\AdminMiddleware::class,
 ];

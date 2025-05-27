@@ -29,8 +29,8 @@
 
                     @auth
                     @if(auth()->user()->isAdmin())
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 {{ request()->is('admin*') ? 'text-indigo-600 font-medium' : '' }}">
+                    <a href="{{ route('Admin.dashboard') }}"
+                        class="text-gray-700 hover:text-indigo-600 px-3 py-2 {{ request()->is('Admin*') ? 'text-indigo-600 font-medium' : '' }}">
                         Admin Dashboard
                     </a>
                     @else
@@ -90,8 +90,8 @@
 
             @auth
             @if(auth()->user()->isAdmin())
-            <a href="{{ route('admin.dashboard') }}"
-                class="block px-3 py-2 rounded-md text-base font-medium {{ request()->is('admin*') ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-indigo-50' }}">
+            <a href="{{ route('Admin.dashboard') }}"
+                class="block px-3 py-2 rounded-md text-base font-medium {{ request()->is('Admin*') ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-indigo-50' }}">
                 Admin Dashboard
             </a>
             @else

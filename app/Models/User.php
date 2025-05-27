@@ -54,6 +54,11 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->role === 'admin'; // Pastikan kolom 'role' ada di tabel users
+        return $this->role === 'Admin'; // Pastikan kolom 'role' ada di database
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->role === 'Admin';
     }
 }
